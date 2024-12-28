@@ -24,7 +24,7 @@ public_users.post("/register", (req, res) => {
 
 public_users.get('/', async function (req, res) {
   try {
-    const allBooks = await axios.get('http://localhost:5000/books'); 
+    const allBooks = await axios.get('http://localhost:5001/'); 
     return res.status(200).json(allBooks.data);
   } catch (error) {
     return res.status(500).json({ message: "An error occurred", error: error.message });
@@ -35,7 +35,7 @@ public_users.get('/isbn/:isbn', async function (req, res) {
   const { isbn } = req.params;
 
   try {
-    const book = await axios.get(`http://localhost:5000/books/${isbn}`); 
+    const book = await axios.get(`http://localhost:5001/books/${isbn}`); 
     if (book.data) {
       return res.status(200).json(book.data);
     } else {
@@ -50,7 +50,7 @@ public_users.get('/author/:author', async function (req, res) {
   const { author } = req.params;
 
   try {
-    const allBooks = await axios.get('http://localhost:5000/books'); 
+    const allBooks = await axios.get('http://localhost:5001/books'); 
     const filteredBooks = Object.values(allBooks.data).filter(
       book => book.author.toLowerCase() === author.toLowerCase()
     );
@@ -69,7 +69,7 @@ public_users.get('/title/:title', async function (req, res) {
   const { title } = req.params;
 
   try {
-    const allBooks = await axios.get('http://localhost:5000/books'); 
+    const allBooks = await axios.get('http://localhost:5001/books'); 
     const filteredBooks = Object.values(allBooks.data).filter(
       book => book.title.toLowerCase() === title.toLowerCase()
     );
@@ -88,7 +88,7 @@ public_users.get('/review/:isbn', async function (req, res) {
   const { isbn } = req.params;
 
   try {
-    const book = await axios.get(`http://localhost:5000/books/${isbn}`); 
+    const book = await axios.get(`http://localhost:5001/books/${isbn}`); 
     if (book.data && book.data.reviews) {
       return res.status(200).json(book.data.reviews);
     } else {
