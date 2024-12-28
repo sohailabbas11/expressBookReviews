@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.9"
+  },
+  "name": "expressbookreviews",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
